@@ -1,0 +1,25 @@
+name: CopyFile
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+jobs:
+  CopyFilesToServer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: copy ads file
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEYS }}
+          port: ${{ secrets.DEVSSHPORT }}
+          source: "app-ads.txt"
+          target: "/home/wwwroot/default/"
+          #direction: upload
+          #fingerprint: ${{ secrets.FINGERPRINT }}
