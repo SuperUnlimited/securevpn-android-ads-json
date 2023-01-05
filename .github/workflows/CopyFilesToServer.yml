@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEYS }}
           port: ${{ secrets.DEVSSHPORT }}
-          source: "app-ads.txt"
-          target: "/home/wwwroot/default/"
+          source: "securevpn-ads.json"
+          target: "/home/wwwroot/default/ads_securevpnandroid.php"
           #direction: upload
           #fingerprint: ${{ secrets.FINGERPRINT }}
